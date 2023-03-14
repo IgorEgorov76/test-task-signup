@@ -1,8 +1,121 @@
 @import "fonts";
 
 body {
-	background-color: black;
-	span{
-		color: red;
+	background-color: #F2F2F2;
+}
+
+input {
+	border: none;
+	font-family: WorkSans;
+}
+
+select {
+	border: none;
+	font-family: WorkSans;
+	width: 100%;
+}
+
+.main-container {
+	max-width: 665px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.sign-block {
+	display: flex;
+	min-height: 480px;
+
+	&__left-block {
+		background-color: #5A61ED;
+		width: 137px;
+		display: flex;
+		align-items: flex-end;
+		position: relative;
+	}
+
+	&__left-block-text {
+		font-family: PTSans;
+		font-size: 49px;
+		color: white;
+		transform: rotate(270deg);
+		white-space: nowrap;
+		position: relative;
+		bottom: 75px;
+		right: -20px;
+	}
+
+	&__right-block {
+		font-family: WorkSans;
+		//background: url("../img/user-img.svg") no-repeat;
+		background-color: #FFFFFF;
+		width: 527.8px;
+		padding: 38.5px 22px 32.5px 21px;
+	}
+
+	&__right-block-title {
+		font-size: 22px;
+	}
+
+	&__right-block-explanation {
+		font-size: 14px;
+		margin-bottom: 20px;
+	}
+
+	&__right-block-input {
+		background: transparent;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		outline: none;
+	}
+
+	&__right-block-forms {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-bottom: 98px;
+	}
+
+	&__right-block-forms-item {
+		font-family: WorkSans;
+		width: 234.5px;
+		margin-bottom: 16px;
+	}
+
+	&__right-block-forms-item-name {
+		font-size: 12px;
+		color: #7C7C7C;
+	}
+
+	&__right-block-forms-item-value {
+		border-bottom: 1px solid #F2F2F2;
+		font-size: 14px;
+		color: #111111;
+		height: 27px;
+	}
+
+	&__right-block-login {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__right-block-login-item {
+		font-family: WorkSans;
+		font-weight: 200;
+		font-size: 13px;
+		color: #000000;
+
+		&_link {
+			color: #5A61ED;
+		}
+	}
+
+	&__right-block-login-btn {
+		font-family: PTSans;
+		font-size: 14px;
+		color: #FFFFFF;
+		background-color: #5A61ED;
+		width: 154px;
+		height: 32px;
 	}
 }
