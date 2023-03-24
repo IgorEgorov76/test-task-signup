@@ -8,24 +8,26 @@
 	@@include('html/header.html',{})
 	<main>
 	<div class="main-container">
-		<div class="sign-block">
+		<div class="sign-block" id="form-body">
 			<div class="sign-block__left-block">
 				<div class="sign-block__left-block-text">Sign up</div>
 			</div>
 			<div class="sign-block__right-block">
 				<div class="sign-block__right-block-title">New user?</div>
 				<div class="sign-block__right-block-explanation">Use the form below to create your account.</div>
+				<form action="#" id="form">
 				<div class="sign-block__right-block-forms">
 					<div class="sign-block__right-block-forms-item">
 						<div class="sign-block__right-block-forms-item-name">First Name</div>
-						<div class="sign-block__right-block-forms-item-value">
-							<input class="sign-block__right-block-input" autofocus name="first-name" placeholder="Alice" size="30">
+						<div id="name" class="sign-block__right-block-forms-item-value">
+							<input id="input-name" class="sign-block__right-block-input _req" autofocus name="first-name" placeholder="Alice" size="30">
 						</div>
+						<div id="error"></div>
 					</div>
 					<div class="sign-block__right-block-forms-item">
 						<div class="sign-block__right-block-forms-item-name">Last Name</div>
 						<div class="sign-block__right-block-forms-item-value">
-							<input class="sign-block__right-block-input" name="last-name" placeholder="Miller" size="30">
+							<input class="sign-block__right-block-input _req" name="last-name" placeholder="Miller" size="30">
 						</div>
 					</div>
 					<div class="sign-block__right-block-forms-item">
@@ -39,13 +41,13 @@
 					</div>
 					<div class="sign-block__right-block-forms-item">
 						<div class="sign-block__right-block-forms-item-name">E-mail</div>
-						<div class="sign-block__right-block-forms-item-value">
-							<input class="sign-block__right-block-input" type="email" name="e-mail" placeholder="alice.miller@yahoo.com" size="30">
+						<div id="email" class="sign-block__right-block-forms-item-value">
+							<input id="input-email" class="sign-block__right-block-input _req _email" type="email" name="e-mail" placeholder="alice.miller@yahoo.com" size="30">
 						</div>
 					</div>
 					<div class="sign-block__right-block-forms-item">
 						<div class="sign-block__right-block-forms-item-name">Date of Birth</div>
-						<div style="display: flex">
+						<div style="display:flex">
 							<div class="sign-block__right-block-forms-item-value" style="margin-right: 10px; width: 56px">
 								<select id="days" class="sign-block__right-block-input" name="days">
 								</select>
@@ -70,13 +72,13 @@
 					<div class="sign-block__right-block-forms-item">
 						<div class="sign-block__right-block-forms-item-name">Password</div>
 						<div class="sign-block__right-block-forms-item-value">
-							<input class="sign-block__right-block-input" name="password" type="password" size="30">
+							<input id="password" class="sign-block__right-block-input _req _password" name="password" type="password" size="30">
 						</div>
 					</div>
 					<div class="sign-block__right-block-forms-item">
 						<div class="sign-block__right-block-forms-item-name">Confirm Password</div>
 						<div class="sign-block__right-block-forms-item-value">
-							<input class="sign-block__right-block-input" name="confirm-password" type="password" size="30">
+							<input id="password-conf"  class="sign-block__right-block-input _req" name="confirm-password" type="password" size="30">
 						</div>
 					</div>
 				</div>
@@ -86,6 +88,7 @@
 					</div>
 					<input class="sign-block__right-block-login-btn" type="submit" value="Complete Signup">
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>

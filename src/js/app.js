@@ -67,3 +67,88 @@ listMonths.addEventListener('change', () => {
 		}
 	}
 })
+
+document.addEventListener('DOMContentLoaded', function () {
+	const form = document.getElementById('form');
+	const formBody = document.getElementById('form-body')
+	const password = document.getElementById('password')
+	const passwordConf = document.getElementById('password-conf')
+
+	form.addEventListener('submit', formSend);
+
+	async function formSend(e) {
+		e.preventDefault();
+		let error = formValidate(form);
+		let formData = new FormData(form);
+
+		if (error === 0) {
+			const data = Object.fromEntries(formData);
+			console.log(data);
+			formBody.classList.add('_sending');
+			form.reset();
+			formBody.classList.remove('_sending');
+			alert('Регистрация прошла успешно!')
+		}
+		else {
+			alert('Заполните обязательные поля')
+		}
+	}
+
+	function formValidate(form) {
+		let error = 0;
+		let formReq = document.querySelectorAll('._req')
+
+		for (let index = 0; index < formReq.length; index++) {
+			const input = formReq[index];
+			formRemoveError(input);
+
+			if (input.classList.contains('_password')) {
+				if (passwordTest(input)) {
+					if (password.value === passwordConf.value) {
+					}
+					else {
+						formAddError(input);
+						error++;
+						alert('Пароли должны совпадать');
+					}
+				}
+				else {
+					formAddError(input);
+					error++;
+					alert('Пароль должен содержать как минимум 8 символом, 1 заглавную, 1 строчную букву и один спец. символ');
+				}
+			}
+			else if (input.classList.contains('_email')) {
+				if (emailTest(input)) {
+					formAddError(input);
+					error++;
+				}
+			}
+			else {
+				if (input.value === '') {
+					formAddError(input);
+					error++;
+				}
+			}
+		}
+		console.log(`error = ${error}`)
+		return error;
+	}
+	function formAddError(input) {
+		input.parentElement.classList.add('_error');
+		input.classList.add('_error')
+	}
+	function formRemoveError(input) {
+		input.parentElement.classList.remove('_error');
+		input.classList.remove('_error');
+	}
+
+	// Тест email
+	function emailTest(input) {
+		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value)
+	}
+	// Тест password
+	function passwordTest(input) {
+		return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/g.test(input.value)
+	}
+})
